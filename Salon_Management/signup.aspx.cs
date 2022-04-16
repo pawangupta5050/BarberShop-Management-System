@@ -113,7 +113,7 @@ namespace Salon_Management
                 SmtpServer.EnableSsl = true;
                 SmtpServer.Timeout = 10000;
                 SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new NetworkCredential("pawangupta200301@gmail.com", "Pawan2031");
+                SmtpServer.Credentials = new NetworkCredential("Your Email ID", "Your Password");
                 MailMessage msg = new MailMessage();
                 msg.To.Add(Email.Text.Trim());
                 msg.From = new MailAddress("pawangupta200301@gmail.com");
