@@ -192,10 +192,10 @@ namespace Salon_Management
                 SmtpServer.EnableSsl = true;
                 SmtpServer.Timeout = 10000;
                 SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new NetworkCredential("pawangupta200301@gmail.com", "Pawan2031");
+                SmtpServer.Credentials = new NetworkCredential("Your Email ID", "Your Password");
                 MailMessage msg = new MailMessage();
                 msg.To.Add(Newsletter.Text);
-                msg.From = new MailAddress("pawangupta200301@gmail.com");
+                msg.From = new MailAddress("Your Email ID");
                 msg.Subject = "Thank You for Subscribing";
                 msg.Body = System.IO.File.ReadAllText(HttpContext.Current.Server.MapPath("Email/Newsletter.html"));
                 msg.IsBodyHtml = true;
