@@ -195,10 +195,10 @@ namespace Salon_Management
                 SmtpServer.EnableSsl = true;
                 SmtpServer.Timeout = 10000;
                 SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new NetworkCredential("pawangupta200301@gmail.com", "Pawan2031");
+                SmtpServer.Credentials = new NetworkCredential("Your Email ID", "Your Password");
                 MailMessage msg = new MailMessage();
                 msg.To.Add(HiddenField1.Value.ToString().Trim());
-                msg.From = new MailAddress("pawangupta200301@gmail.com");
+                msg.From = new MailAddress("Your Email ID");
                 msg.Subject = "Appointment Rejection Mail";
                 msg.Body = CreateBody(name,service);
                 msg.IsBodyHtml = true;
@@ -230,10 +230,10 @@ namespace Salon_Management
                 SmtpServer.EnableSsl = true;
                 SmtpServer.Timeout = 10000;
                 SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new NetworkCredential("pawangupta200301@gmail.com", "Pawan2031");
+                SmtpServer.Credentials = new NetworkCredential("Your Email ID", "Your Password");
                 MailMessage msg = new MailMessage();
                 msg.To.Add(HiddenField1.Value.ToString().Trim());
-                msg.From = new MailAddress("pawangupta200301@gmail.com");
+                msg.From = new MailAddress("Your Email ID");
                 msg.Subject = "Appointment Accept Mail";
                 msg.Body = CreateAcceptBody(name, service);
                 msg.IsBodyHtml = true;
