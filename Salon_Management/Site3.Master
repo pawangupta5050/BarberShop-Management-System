@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site3.master.cs" Inherits="Salon_Management.Site3" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>BarberShop</title>
+    <link href="fontawesome/css/all.css" rel="stylesheet" />
+    <link href="css/style2.css" rel="stylesheet" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <link href="bootstarp/CSS/bootstrap.min.css" rel="stylesheet" />
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <script src="bootstarp/JS/bootstrap.bundle.min.js"></script>
+    <form id="form1" runat="server">
+        <div>
+            <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid bg-white">
+                    <a class="navbar-brand py-3 px-5" href="#">
+                        <p><b><big>&nbsp;BS</big></b> BarberShop</p>
+                    </a>
+                </div>
+            </nav>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <footer class="container-fluid bg-white">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+
+                    <div class="row">
+                        <div class="col my-4 mx-5">
+                            <p Style="text-align: right; float: right;">Copyrights  ©  2021 -
+                                All rights reserved&nbsp;<a><b>BarberShop</b></a></p>
+                        </div>
+                        </div>
+                    </div>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>

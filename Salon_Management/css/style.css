@@ -1,0 +1,41 @@
+﻿footer h5 {
+    color: white;
+}
+
+footer h1{
+    color:white;
+}
+
+footer a {
+    color: white;
+    text-decoration: none !important;
+}
+
+footer footerlinks {
+    color: white;
+    text-decoration: none !important;
+}
+
+footer footerlinks:hover {
+    color: wheat;
+}
+
+footer a:hover {
+    color: wheat;
+}
+
+footer p {
+    color: white;
+}
+
+nav p {
+    color: white;
+}
+
+.aboutp {
+    color: black;
+    text-decoration: none !important;
+}
+
+
+

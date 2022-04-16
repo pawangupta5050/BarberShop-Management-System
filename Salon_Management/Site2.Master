@@ -1,0 +1,283 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site2.master.cs" Inherits="Salon_Management.Site2" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>BarberShop</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link href="css/style1.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="fontawesome/css/all.css" rel="stylesheet" />
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+    <style>
+        li.scroll {
+            max-height: 30vh;
+            overflow: auto;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="sb-nav-fixed">
+    <form id="from1" runat="server">
+
+        <asp:HiddenField ID="HiddenField1" runat="server" />
+        <asp:HiddenField ID="HiddenField2" runat="server" />
+        <nav class="sb-topnav navbar navbar-expand navbar-dark" style="background-color: #3742fa">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html"><b><big>BS </big></b>BarberShop</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+
+            <!-- Navbar-->
+            <ul class="navbar-nav me-auto">
+            </ul>
+            <ul class="navbar-nav px-5">
+                <li class="nav-item py-2 px-4">
+                    <asp:Label ID="lblDateTime" runat="server" Text="Label" CssClass="badge py-1 bg-warning"></asp:Label>
+                </li>
+                <%--<li class="nav-item dropdown">
+                    <a class="nav-link" id="mssgDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-comments"></i>
+                        <span class="badge badge-warning navbar-badge">
+                            <asp:Label ID="lblMessageCount" runat="server"></asp:Label>
+
+                        </span>
+
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-xl dropdown-menu-end" aria-labelledby="mssgDropdown">
+                        <li class="text-center py-2">
+                            <asp:Label ID="LblMssgCount" runat="server" CssClass="badge rounded-pill bg-info"></asp:Label>
+                            Message(s)
+                        </li>
+                        <li>
+                            <div class="dropdown-divider"></div>
+                        </li>
+                        <li class="scroll">
+                            <asp:ListView ID="ListView2" runat="server" class="table table-responsive table-striped" OnItemCommand="ListView2_ItemCommand">
+                                <EmptyDataTemplate>
+                                    <table runat="server" style="">
+                                        <tr>
+                                            <td>No Message</td>
+                                        </tr>
+                                    </table>
+                                </EmptyDataTemplate>
+                                <ItemTemplate>
+                                    <div class="container py-2">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                
+                                                    <img class="direct-chat-img" src="image/User_logo.jpg" />
+
+                                                <asp:LinkButton ID="LinkButton1" CommandArgument='<%# Eval("userid") %>' CommandName="ViewUserMessage" CssClass="" runat="server">
+                                                    Message from
+                                                    <asp:Label ID="lbluserid" runat="server" Text='<%# Eval("userid") %>'></asp:Label>
+                                                    
+                                                    <asp:Label ID="mssgDate" runat="server" Text='<%# Eval("time","{0:MM/dd/yyyy}") %>' CssClass="badge rounded-pill bg-info px-2"></asp:Label>
+                                                    
+                                                </asp:LinkButton>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <hr class="dropdown-divider" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:ListView>
+                        </li>
+                        <li>
+                            <div class="dropdown-divider"></div>
+                        </li>
+                    </ul>
+                </li>--%>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" id="notDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="far fa-bell"></i>
+                        <span class="badge badge-warning navbar-badge">
+                            <asp:Label ID="NotificationCount" runat="server"></asp:Label>
+
+                        </span>
+
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end" aria-labelledby="notDropdown">
+                        <li class="text-center py-2">
+                            <asp:Label ID="NotifiCount" runat="server" CssClass="badge rounded-pill bg-info"></asp:Label>
+                            Notification
+                        </li>
+                        <li>
+                            <div class="dropdown-divider"></div>
+                        </li>
+                        <li class="scroll">
+                            <asp:ListView ID="ListView1" runat="server" class="table table-responsive table-striped">
+                                <EmptyDataTemplate>
+                                    <table runat="server" style="">
+                                        <tr>
+                                            <td>No Notifications</td>
+                                        </tr>
+                                    </table>
+                                </EmptyDataTemplate>
+                                <ItemTemplate>
+                                    <div class="container py-1">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <asp:Label ID="NotDate" runat="server" Text='<%# Eval("Date","{0:MM/dd/yyyy}") %>' CssClass="badge rounded-pill bg-info"></asp:Label>
+                                                An Appointment has been booked by <%# Eval("CustomerName") %>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <hr class="dropdown-divider" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:ListView>
+                        </li>
+                        <li>
+                            <div class="dropdown-divider"></div>
+                        </li>
+                        <li class="text-center py-2 ">
+                            <a href="Notifications.aspx">See all notifications</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li>
+                            <asp:LinkButton class="dropdown-item" ID="Home" runat="server" OnClick="Home_Click">Home</asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton class="dropdown-item" ID="ViewServices" runat="server" OnClick="ViewServices_Click">View Services</asp:LinkButton></li>
+                        <li>
+                            <hr class="dropdown-divider" />
+                        </li>
+                        <li>
+                            <asp:LinkButton class="dropdown-item" ID="logout" runat="server" OnClick="logout_Click">Logout</asp:LinkButton></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion" style="background-color: #3742fa">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <asp:LinkButton class="nav-link" ID="Dashboard" runat="server" OnClick="Dashboard_Click"><i class="fas fa-tachometer-alt"></i> &nbsp; Dashboard</asp:LinkButton>
+                            <div class="sb-sidenav-menu-heading">Management</div>
+                            <a class="nav-link collapsed" id="servicedrop" runat="server" href="#" data-bs-toggle="collapse" data-bs-target="#collapseService" aria-expanded="false" aria-controls="collapseService">
+                                <div class="sb-nav-link-icon"><i class="fas fa-cut"></i></div>
+                                Service
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseService" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <asp:LinkButton class="nav-link" ID="ServiceInventory" runat="server" OnClick="ServiceInventory_Click">Service Inventory</asp:LinkButton>
+                                    <asp:LinkButton class="nav-link" ID="ServiceManagement" runat="server" OnClick="ServiceManagement_Click">Service Management</asp:LinkButton>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" id="customerdrop" runat="server" href="#" data-bs-toggle="collapse" data-bs-target="#collapseCustomer" aria-expanded="false" aria-controls="collapseCustomer">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-check"></i></div>
+                                Customer
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseCustomer" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <asp:LinkButton class="nav-link" ID="CustomerManagement" runat="server" OnClick="CustomerManagement_Click">Customer Management</asp:LinkButton>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" id="stylistdrop" runat="server" href="#" data-bs-toggle="collapse" data-bs-target="#collapseStylist" aria-expanded="false" aria-controls="collapseStylist">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-shield"></i></div>
+                                Stylist
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseStylist" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <asp:LinkButton class="nav-link" ID="stylistManagement" runat="server" OnClick="stylistManagement_Click">Stylist Management</asp:LinkButton>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseAppointment" aria-expanded="false" aria-controls="collapseAppointment">
+                                <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                                Appointment
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseAppointment" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <asp:LinkButton class="nav-link" ID="AppList" runat="server" OnClick="AppList_Click">Appointment List</asp:LinkButton>
+                                    <asp:LinkButton class="nav-link" ID="AppRep" runat="server" OnClick="AppRep_Click">Appointment Report</asp:LinkButton>
+                                    <asp:LinkButton class="nav-link" ID="AllotedApp" runat="server" Visible="false" OnClick="AllotedApp_Click">Alloted Appointment</asp:LinkButton>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" id="gallerydrop" runat="server" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-images"></i></div>
+                                Gallery Management
+                               
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">Gallery
+                                       
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <asp:LinkButton class="nav-link" ID="ShaveGallery" runat="server" OnClick="ShaveGallery_Click">Shave</asp:LinkButton>
+                                            <asp:LinkButton class="nav-link" ID="HairGallery" runat="server" OnClick="HairGallery_Click">Hair</asp:LinkButton>
+                                            <asp:LinkButton class="nav-link" ID="MassageGallery" runat="server" OnClick="MassageGallery_Click">Massage</asp:LinkButton>
+                                        </nav>
+                                    </div>
+                                </nav>
+                            </div>
+                            <div class="sb-sidenav-menu-heading">Settings</div>
+
+                            <asp:LinkButton class="nav-link" ID="ChangePass" runat="server" OnClick="ChangePass_Click"><i class="fas fa-key"></i> &nbsp; Change Password</asp:LinkButton>
+                            <asp:LinkButton class="nav-link" ID="ChangeStylistPass" Visible="false" runat="server" OnClick="ChangeStylistPass_Click"><i class="fas fa-key"></i> &nbsp; Change Password</asp:LinkButton>
+
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer" style="background-color: #3742fa">
+                        <div class="small">Logged in as:</div>
+                        <asp:Label ID="LoginId" runat="server"></asp:Label>
+                    </div>
+                </nav>
+            </div>
+
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; BarberShop</div>
+                        <div>
+                            <asp:LinkButton ID="Privacy" runat="server" Style="text-decoration: none !important" OnClick="Privacy_Click">Privacy Policy</asp:LinkButton>
+                            &middot;
+                        
+                    <asp:LinkButton ID="Terms" runat="server" Style="text-decoration: none !important" OnClick="Terms_Click">Terms &amp; Conditions</asp:LinkButton>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+        <script src="bootstarp/JS/bootstrap.bundle.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="assets/demo/Chart.min.js"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+        <script src="assets/demo/simple-datatables@latest.js"></script>
+    </form>
+</body>
+</html>

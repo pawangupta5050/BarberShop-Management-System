@@ -1,0 +1,354 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Salon_Management.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>BarberShop</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="bootstarp/CSS/bootstrap.min.css" rel="stylesheet" />
+    <link href="fontawesome/css/all.css" rel="stylesheet" />
+    <link href="css/style1.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="HomePage/assets/css/animated.css" rel="stylesheet" />
+    <link href="HomePage/assets/css/fontawesome.css" rel="stylesheet" />
+    <link href="HomePage/assets/css/owl.css" rel="stylesheet" />
+    <link href="HomePage/assets/css/MainHome.css" rel="stylesheet" />
+    <script src="MenuToggle.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <script src="bootstarp/JS/bootstrap.bundle.min.js"></script>
+    <form id="form1" runat="server">
+        <div>
+            <!-- ***** Header Area Start ***** -->
+            <header class="header-area header-sticky wow slideInDown pt-3" data-wow-duration="0.75s" data-wow-delay="0s">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- ***** Logo End ***** -->
+                            <!-- ***** Menu Start ***** -->
+                            <nav class="navbar navbar-expand-lg navbar-light">
+                                <a class="navbar-brand text-primary" href="#" style="color: black">
+                                    <big><b>BS</b> BarberShop</big>
+                                </a>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav me-auto ">
+                                        <li class="nav-item active"></li>
+                                    </ul>
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item active">
+                                            <asp:LinkButton class="nav-link  px-4" ID="home" runat="server" OnClick="home_Click">Home</asp:LinkButton>
+                                        </li>
+                                        <li class="nav-item active">
+                                            <asp:LinkButton class="nav-link px-4" ID="aboutus" runat="server" OnClick="aboutus_Click">About Us</asp:LinkButton>
+                                        </li>
+                                        <li class="nav-item active">
+                                            <asp:LinkButton class="nav-link px-4" ID="terms" runat="server" OnClick="terms_Click">Terms</asp:LinkButton>
+                                        </li>
+
+                                        <li class="nav-item dropdown active">
+                                            <a class="nav-link dropdown-toggle px-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">View
+
+                                            </a>
+                                            <ul class="dropdown-menu navbar-light bg-light" aria-labelledby="navbarDropdown">
+                                                <li>
+                                                    <asp:LinkButton class="nav-link" ID="viewservice" runat="server" OnClick="viewservice_Click">View Services</asp:LinkButton>
+
+                                                </li>
+
+                                                <li>
+                                                    <asp:LinkButton class="nav-link" ID="Gallery" runat="server" OnClick="Gallery_Click">View Gallery</asp:LinkButton>
+
+                                                </li>
+
+                                                <li>
+                                                    <asp:LinkButton class="nav-link" ID="StylistProfile" runat="server" OnClick="StylistProfile_Click">View Stylist</asp:LinkButton>
+
+                                                </li>
+
+                                                
+                                            </ul>
+                                        </li>
+                                        <%--<li class="nav-item active">
+                                            <a data-bs-toggle="modal" data-bs-target="#myModal" class="nav-link px-4">
+                                                <i class="fas fa-comments"></i>
+                                            </a>
+
+                                            <div class="modal fade" id="myModal">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+
+                                                        <!-- Modal Header -->
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Modal Heading</h4>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                        </div>
+
+                                                        <!-- Modal body -->
+                                                        <div class="modal-body">
+                                                            hello world
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>--%>
+                                        <li class="nav-item dropdown active">
+                                            <a class="nav-link dropdown-toggle px-3" href="#" id="ProfileDropdown" runat="server" visible="false"  data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i>
+                                            </a>
+                                            <ul class="dropdown-menu navbar-light bg-light" aria-labelledby="ProfileDropdown">
+                                                <li>
+                                                    
+                                            <asp:LinkButton class="nav-link " ID="hello" runat="server" Visible="false" OnClick="hello_Click">Hello User</asp:LinkButton>
+                                                </li>
+                                                <li>
+                                                    <asp:LinkButton class="nav-link" ID="logout" runat="server" Visible="false" OnClick="logout_Click">Logout</asp:LinkButton>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item active">
+                                            <asp:LinkButton class="nav-link px-2" ID="wishlist" runat="server" Visible="false" OnClick="wishlist_Click">
+                                               <i class="fas fa-heart py-1" style="color: red"></i>
+                                                
+                                            </asp:LinkButton>
+                                        </li>
+                                        <li class="nav-item active">
+                                            <asp:LinkButton class="nav-link px-4" ID="AdminLogin" runat="server" Visible="true" OnClick="AdminLogin_Click">Admin?</asp:LinkButton>
+                                        </li>
+                                        <li class="nav-item active">
+                                            <div class="gradient-button">
+                                                <asp:LinkButton class="nav-link px-4" ID="login" runat="server" OnClick="login_Click">Log In / Sign Up</asp:LinkButton>
+                                            </div>
+                                        </li>
+
+
+                                    </ul>
+
+                                </div>
+
+                            </nav>
+                            <%--<ul class="nav">
+                                    <li class="scroll-to-section">
+                                        <asp:LinkButton class="active" ID="home" runat="server" OnClick="home_Click">Home</asp:LinkButton></li>
+                                    <li class="scroll-to-section">
+                                        <asp:LinkButton ID="aboutus" runat="server" OnClick="aboutus_Click">About Us</asp:LinkButton></li>
+                                    <li class="scroll-to-section">
+                                        <asp:LinkButton ID="terms" runat="server" OnClick="terms_Click">Terms</asp:LinkButton></li>
+                                    <li class="scroll-to-section">
+                                        <a class=" dropdown-toggle px-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">View
+
+                                        </a>
+                                        <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                                            <li>
+                                                <asp:LinkButton ID="viewservice" runat="server" OnClick="viewservice_Click">View Services</asp:LinkButton></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <asp:LinkButton ID="logout" runat="server" Visible="false" OnClick="logout_Click">Logout</asp:LinkButton></li>
+                                        </ul>
+                                    </li>
+                                    <li class="scroll-to-section">
+                                        <asp:LinkButton ID="AdminLogin" runat="server" Visible="true" OnClick="AdminLogin_Click">Admin?</asp:LinkButton></li>
+                                    <li>
+                                        <div class="gradient-button">
+                                            <asp:LinkButton ID="login" runat="server" OnClick="login_Click">Log In / Sign Up</asp:LinkButton>
+                                        </div>
+                                    </li>
+
+                                    <li class="scroll-to-section">
+                                        <asp:LinkButton ID="hello" runat="server" Visible="false" OnClick="hello_Click">Hello User</asp:LinkButton></li>
+                                </ul>--%>
+                            <!-- ***** Menu End ***** -->
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- ***** Header Area End ***** -->
+            <%--<nav class="navbar navbar-expand-lg px-5" style="background-color: #706fd3">
+                <a class="navbar-brand" href="#">
+
+                    <p><b><big>&nbsp;BS</big></b> BarberShop</p>
+
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto ">
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link px-3" ID="home" runat="server" OnClick="home_Click">Home</asp:LinkButton>
+                        </li>
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link px-3" ID="aboutus" runat="server" OnClick="aboutus_Click">About Us</asp:LinkButton>
+                        </li>
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link px-3" ID="terms" runat="server" OnClick="terms_Click">Terms</asp:LinkButton>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link px-3" ID="login" runat="server" OnClick="login_Click">Log In</asp:LinkButton>
+                        </li>
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link px-3" ID="signup" runat="server" OnClick="signup_Click">Sign Up</asp:LinkButton>
+                        </li>
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle px-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">View
+
+                            </a>
+                            <ul class="dropdown-menu navbar-dark bg-dark" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <asp:LinkButton class="nav-link" ID="viewservice" runat="server" OnClick="viewservice_Click">View Services</asp:LinkButton></li>
+                                <li>
+                                    <asp:LinkButton class="nav-link" ID="servicemanagement" runat="server" Visible="false" OnClick="servicemanagement_Click">Service Management</asp:LinkButton><li>
+                                <li>
+                                    <asp:LinkButton class="nav-link" ID="serviceinventory" runat="server" Visible="false" OnClick="serviceinventory_Click">Service Inventory</asp:LinkButton></li>
+                                <li>
+                                    <asp:LinkButton class="nav-link" ID="usermanagement" runat="server" Visible="false" OnClick="usermanagement_Click">User Management</asp:LinkButton></li>
+                                <li>
+                                    <asp:LinkButton class="nav-link" ID="stylistmanagement" runat="server" Visible="false" OnClick="stylistmanagement_Click">Stylist Management</asp:LinkButton></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <asp:LinkButton class="nav-link" ID="logout" runat="server" Visible="false" OnClick="logout_Click">Logout</asp:LinkButton></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item active">
+
+                            <asp:LinkButton class="nav-link px-3" ID="hello" runat="server" Visible="false" OnClick="hello_Click">Hello User</asp:LinkButton>
+                        </li>
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="AdminLogin" runat="server" Visible="true" OnClick="AdminLogin_Click">Admin?</asp:LinkButton>
+                        </li>
+
+
+                    </ul>
+
+                </div>
+
+            </nav>--%>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <footer id="newsletter">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <div class="section-heading">
+                                <h4>Join our mailing list to receive the newsletters &amp; latest trends</h4>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 offset-lg-3">
+
+                            <div class="row ps-5">
+                                <div class="col-lg-7 col-sm-7" id="search">
+                                    <fieldset>
+                                        <asp:TextBox ID="Newsletter" runat="server" name="address" class="email" placeholder="Email Address..."></asp:TextBox>
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-5 col-sm-5" id="btn">
+                                    <fieldset>
+                                        <asp:Button ID="subscribe" runat="server" Text="Subscribe Now" class="btn-primary py-2 px-5" Style="border-radius: 100px" OnClick="subscribe_Click" />
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="footer-widget">
+                                <h4>Contact Us</h4>
+                                <p>BarberShop, Mulund East, Mumbai 400081.</p>
+                                <p><a href="tel:+917977215555"><i class="fas fa-phone-square"></i>&nbsp; +(91) 7977215555</a></p>
+                                <p><a href="mailto:eduhill@gmail.com"><i class="fas fa-envelope"></i>&nbsp; barbershopstyles@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="footer-widget">
+                                <h4>About Us</h4>
+                                <ul>
+                                    <li>
+                                        <asp:LinkButton class="footerlinks" ID="HomeLink" runat="server" PostBackUrl="~/home.aspx">Home</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton class="footerlinks" ID="ServiceLink" runat="server" PostBackUrl="~/ProductList.aspx">Services</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton class="footerlinks" ID="AbouLink" runat="server" PostBackUrl="~/about.aspx">About</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton class="footerlinks" ID="TesimonialsLink" runat="server" PostBackUrl="~/about.aspx">Testimonials</asp:LinkButton></li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <asp:LinkButton class="footerlinks" ID="BlogsLink" runat="server" PostBackUrl="~/about.aspx">Blogs</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton class="footerlinks" ID="CareersLink" runat="server" PostBackUrl="~/careers.aspx">Careers</asp:LinkButton></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="footer-widget">
+                                <h4>Useful Links</h4>
+                                <ul>
+                                    <li>
+                                        <asp:LinkButton class="footerlinks" ID="TermsLink" runat="server" PostBackUrl="~/terms.aspx">Terms</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton class="footerlinks" ID="LiscenceLink" runat="server" PostBackUrl="~/privacy.aspx">Liscence</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton class="footerlinks" ID="PrivacyLink" runat="server" PostBackUrl="~/privacy.aspx">Privacy Policy</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton class="footerlinks" ID="DocumentsLink" runat="server" PostBackUrl="~/about.aspx">Documensts</asp:LinkButton></li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <asp:LinkButton class="footerlinks" ID="LinkButton5" runat="server" PostBackUrl="~/about.aspx">Social Links</asp:LinkButton></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="footer-widget">
+                                <h4>About Our Company</h4>
+                                <div class="logo">
+                                    <h4><big><b>BS</b>&nbsp;BarberShop</big></h4>
+
+                                    <%--                                    <img src="assets/images/white-logo.png" alt="">--%>
+                                </div>
+                                <p>BarberShop is the online salon services platform. Launched in 2021, BarberShop today operates a best services.......<a href="about.aspx">Read more...</a></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="copyright-text">
+                                <p>
+                                    Copyright © 2022 BarberShop&trade;. All Rights Reserved. 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+        <script src="HomePage/vendor/jquery/jquery.min.js"></script>
+        <script src="HomePage/assets/js/custom.js"></script>
+        <script src="HomePage/assets/js/owl-carousel.js"></script>
+        <script src="HomePage/assets/js/popup.js"></script>
+        <script src="HomePage/assets/js/imagesloaded.js"></script>
+        <script src="HomePage/assets/js/animation.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+        <script src="assets/demo/simple-datatables@latest.js"></script>
+    </form>
+</body>
+</html>
