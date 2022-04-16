@@ -116,7 +116,7 @@ namespace Salon_Management
                 SmtpServer.Credentials = new NetworkCredential("Your Email ID", "Your Password");
                 MailMessage msg = new MailMessage();
                 msg.To.Add(Email.Text.Trim());
-                msg.From = new MailAddress("pawangupta200301@gmail.com");
+                msg.From = new MailAddress("Your Email ID");
                 msg.Subject = "Your Account Credentials";
                 msg.Body = CreateBody();
                 msg.IsBodyHtml = true;
