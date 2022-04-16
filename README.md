@@ -9,4 +9,4 @@ The Frontend used is HTML, CSS, JavaScript and Bootstrap.
 The Database used is MS SQL.
 Additional Plugins are FontAwesome, DataTables, Google Fonts.
 
-![Uploading BarbershopGitHubTemplate.png…]()
+![BarbershopGitHubTemplate](https://user-images.githubusercontent.com/85182279/163682130-c351268e-e190-4cb5-b0dc-0369624a65fb.png)
