@@ -7,6 +7,7 @@
     <title>BarberShop</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="a barbershop with appointment scheduling functionality" />
     <link href="bootstarp/CSS/bootstrap.min.css" rel="stylesheet" />
     <link href="fontawesome/css/all.css" rel="stylesheet" />
     <link href="css/style1.css" rel="stylesheet" />

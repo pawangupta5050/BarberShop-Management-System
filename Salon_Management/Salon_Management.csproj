@@ -75,6 +75,7 @@
     <Content Include="assets\demo\Chart.min.js" />
     <Content Include="assets\demo\datatables-demo.js" />
     <Content Include="assets\demo\simple-datatables%40latest.js" />
+    <Content Include="assets\img\camera.png" />
     <Content Include="assets\img\heading-line-dec.png" />
     <Content Include="assets\img\quote.png" />
     <Content Include="BookedPage.aspx" />
@@ -1833,6 +1834,7 @@
     <Content Include="MassageGalleryManagement.aspx" />
     <Content Include="MassageGallery_ImgUpload\Admin_logo.jpg" />
     <Content Include="ProductList.aspx" />
+    <Content Include="sample.aspx" />
     <Content Include="Service_ImgUpload\Admin_logo.jpg" />
     <Content Include="ShaveGallery_ImgUpload\Admin_logo.jpg" />
     <Content Include="Stylist_ImgUpload\Admin_logo.jpg" />
@@ -1942,6 +1944,13 @@
       <DependentUpon>ProductList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sample.aspx.cs">
+      <DependentUpon>sample.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sample.aspx.designer.cs">
+      <DependentUpon>sample.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

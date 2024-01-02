@@ -33,7 +33,7 @@
                         <asp:TextBox ID="UserPass" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
                     </div>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" Display="Dynamic" runat="server" ErrorMessage="Please Enter Password" ControlToValidate="UserPass"></asp:RequiredFieldValidator>
-                    <asp:regularexpressionvalidator id="RegularExpressionValidator3" display="Dynamic" errormessage="Password must contain:<br> Minimum 8 characters atleast 1 UpperCase Alphabet,<br> 1 LowerCase Alphabet,<br> 1 Number and 1 Special Character" validationexpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}" controltovalidate="UserPass" runat="server"></asp:regularexpressionvalidator>
+                    <asp:regularexpressionvalidator id="RegularExpressionValidator3" display="Dynamic" errormessage="Password must contain:<br> Minimum 8 characters atleast 1 UpperCase Alphabet,<br> 1 LowerCase Alphabet,<br> 1 Number and 1 Special Character" validationexpression="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$" controltovalidate="UserPass" runat="server"></asp:regularexpressionvalidator>
                     <%--<asp:RegularExpressionValidator ID="RegExp" Display="Dynamic" ErrorMessage="Password must be 8-10 characters long</br> with at least one numeric character." ValidationExpression="(?!^[0-9]$)(?!^[a-zA-Z]$)^([a-zA-Z0-9]{8,10})$" ControlToValidate="UserPass" runat="server"></asp:RegularExpressionValidator>
                     --%><div class="form-group">
                         <label for="re-pass"><i class="fas fa-lock"></i></label>
